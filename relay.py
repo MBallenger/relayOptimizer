@@ -3,8 +3,6 @@ from itertools import combinations
 
 
 class Swimmer:
- 
-    womensSwimmerList = []
 
     def __init__(self, name, age, sex, time50Free):
         self.name = name
@@ -29,24 +27,23 @@ class Swimmer:
         return womensSwimmerList
 
 
-    def createRelayCombinations():
-        swimList = Swimmer.createWSwimmerList()
-        relays = list(itertools.combinations(swimList, 4))
-        for i in range(len(relays)):
-            print(i, end=" ")
-            relay = relays[i]
-            minAge = relay[0].age
-            estRelayTime = 0
-            for j in range(len(relay)):
-                relaySwimmer = relay[j]
-                estRelayTime += relaySwimmer.time50Free
-                if relaySwimmer.age < minAge:
-                    minAge = relaySwimmer.age
-                print(relaySwimmer.age)
-                print(relaySwimmer.time50Free)
-            print("min age: " + str(minAge))
-            print("relay time: " + str(estRelayTime))
-            
-
-    createRelayCombinations()
+def createRelayCombinations():
+    swimList = Swimmer.createWSwimmerList()
+    relays = list(itertools.combinations(swimList, 4))
+    for i in range(len(relays)):
+        print(i, end=" ")
+        relay = relays[i]
+        minAge = relay[0].age
+        estRelayTime = 0
+        for j in range(len(relay)):
+            relaySwimmer = relay[j]
+            estRelayTime += relaySwimmer.time50Free
+            if relaySwimmer.age < minAge:
+                minAge = relaySwimmer.age
+            print(relaySwimmer.name)
+            #print(relaySwimmer.time50Free)
+        print("min age: " + str(minAge))
+        print("relay time: " + str(estRelayTime))
+    
+createRelayCombinations()
 
